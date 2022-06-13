@@ -1,0 +1,39 @@
+samtools view -H 1o-read2asm.sort.bam > 1o-read2asm.filter.sam
+samtools view 1o-read2asm.sort.bam |awk '$3!="*"' >> 1o-read2asm.filter.sam 
+less 1o-read2asm.filter.sam |awk '{print $3}'|sort |uniq -c
+
+26093 tig0008
+  19610 tig0025
+  15636 tig0026
+ 421527 tig0035
+ 606827 tig0036
+
+#4/29/2022 14:52:32 Fri
+./1o-read2asm.sam       Total reads in the SAM output   21275435
+./1o-read2asm.sam       Reads could be mapped   540787
+./1o-read2asm.sam       Passing criteria reads  0
+./1o-read2asm.sam       Unmapped reads  20820020
+#---- Parse criteria -----
+#minimum number of identical bases      50
+#mismatched value (include INDEL penalty) out of matched bases  6 100
+#INDEL penalty used to calculate mismatched value       2
+#maximum length of tail allowed at each side out of matched bases       5 100
+#maximum length of the gap allowed      0
+#minimum mapping score of each read     40
+
+
+
+#conclusion/next:
+we remove these contigs no reads can be aligned to.
+tig0041
+tig0025
+tig0026
+tig0036
+tig0035
+tig0008
+tig0038
+tig0040
+tig0039
+tig0037
+
+
